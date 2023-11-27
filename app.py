@@ -300,7 +300,6 @@ def encrypt():
     try:
         # Retrieve block size and signature from the session
         block_size = int(session.get('block_size', DEFAULT_BLOCK_SIZE_2048))
-        signature = session.get('signature')
 
         encrypted_blocks, _ = encrypt_message(message, public_key, block_size)
         encrypted_message = ' '.join(map(str, encrypted_blocks))
