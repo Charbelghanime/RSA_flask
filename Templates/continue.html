@@ -1,0 +1,36 @@
+<!-- continue.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Continue</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+</head>
+
+<body>
+    <h2>Continue Encrypting</h2>
+    <p>Key Size: {{ keysize }} bits</p>
+    <div class="limit break-text">
+        <p>Public Key: {{ public_key }}</p>
+    </div>
+
+    <form method="POST" action="/encrypt">
+        <input type="hidden" name="keysize" value="{{ keysize }}">
+        <input type="hidden" name="public_key_n" value="{{ public_key[0] }}">
+        <input type="hidden" name="public_key_e" value="{{ public_key[1] }}">
+
+        <label for="message">Enter a new message to encrypt:</label><br>
+        <textarea name="message" rows="4" cols="50"></textarea><br>
+
+        <input type="submit" value="Encrypt">
+    </form>
+
+    <form method="POST" action="/return-home">
+        <input type="submit" value="Return Home">
+    </form>
+</body>
+
+</html>

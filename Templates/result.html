@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+</head>
+
+<body>
+    <h2 style="text-align:center;">{{ operation }} <br> The message that you are sending result as encrypted:</h2>
+    <p>The Key Size used in encryption/decryption: {{ keysize }} bits</p>
+    
+    <div class="limit">
+        <p>The original message that the user want to send: {{ message }}</p>
+    </div>
+    
+    <div class="limit">
+        <p>The encrypted message result: {{ result }}</p>
+    </div>
+
+    {% if operation == 'Encrypt' %}
+        <form method="POST" action="/decrypt">
+            <input type="hidden" name="keysize" value="{{ keysize }}">
+            <input type="hidden" name="encrypted_message" value="{{ result }}">
+            <input type="hidden" name="original_length" value="{{ original_length }}">
+            <input type="submit" value="Decrypt">
+        </form>
+    {% endif %}
+
+    {% if operation == 'Decrypt' %}
+        <form method="POST" action="/encrypt">
+            <input type="hidden" name="keysize" value="{{ keysize }}">
+            <input type="hidden" name="public_key_n" value="{{ public_key[0] }}">
+            <input type="hidden" name="public_key_e" value="{{ public_key[1] }}">
+            <input type="hidden" name="message" value="{{ result }}">
+            <input type="submit" value="Encrypt">
+        </form>
+    {% endif %}
+
+    <form method="GET" action="/private-keys">
+        <input type="submit" value="Press this button to check the private key that is used for decryption">
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+</head>
+
+<body>
+    <h2>{{ operation }} Result</h2>
+    <p>Key Size: {{ keysize }} bits</p>
+    
+    <div class="limit">
+        <p>The encrypted message received is: {{ message }}</p>
+    </div>
+    
+    <div class="limit">
+        <p>The decryption result is: {{ result }}</p>
+    </div>
+
+    {% if operation == 'Encrypt' and private_key_n and private_key_d %}
+        <form method="POST" action="/decrypt">
+            <input type="hidden" name="keysize" value="{{ keysize }}">
+            <input type="hidden" name="private_key_n" value="{{ private_key_n }}">
+            <input type="hidden" name="private_key_d" value="{{ private_key_d }}">
+            <input type="hidden" name="encrypted_message" value="{{ result }}">
+            <input type="submit" value="Decrypt">
+        </form>
+    {% endif %}
+
+    {% if operation == 'Decrypt' and public_key %}
+        <form method="POST" action="/encrypt">
+            <input type="hidden" name="keysize" value="{{ keysize }}">
+            
+            {% if public_key[0] %}
+                <input type="hidden" name="public_key_n" value="{{ public_key[0] }}">
+            {% endif %}
+            
+            {% if public_key[1] %}
+                <input type="hidden" name="public_key_e" value="{{ public_key[1] }}">
+            {% endif %}
+            
+            <input type="hidden" name="message" value="{{ result }}">
+            <input type="hidden" name="original_length" value="{{ original_length }}">
+            
+            {% if private_key_n %}
+                <input type="hidden" name="private_key_n" value="{{ private_key_n }}">
+            {% endif %}
+            
+            {% if private_key_d %}
+                <input type="hidden" name="private_key_d" value="{{ private_key_d }}">
+            {% endif %}
+            
+            <input type="submit" value="Encrypt">
+        </form>
+    {% endif %}
+    
+    <form method="GET" action="/private-keys">
+        <input type="submit" value="Press this button to check the private key that is used for decryption">
+    </form>
+    
+    <form method="POST" action="/continue">
+        <input type="submit" value="Press this button if you want to continue with the same old keys">
+    </form>
+
+    <form method="POST" action="/return-home">
+        <input type="submit" value="Press this button to return home and generate new private and public keys">
+    </form>
+    
+</body>
+
+</html>

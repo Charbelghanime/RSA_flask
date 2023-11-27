@@ -1,0 +1,29 @@
+<!-- private_keys.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Keys</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="limit">
+        <h1>Your private keys</h1>
+        <p class="break-text">Private Key (d): {{ private_key_d }}</p>
+        <p class="break-text">Private Key (n): {{ private_key_n }}</p>
+
+        <button onclick="goBack()">Back</button>
+
+        <script>
+            function goBack() {
+                window.history.back();
+            }
+        </script>
+    </div>
+</body>
+
+</html>

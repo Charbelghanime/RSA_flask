@@ -1,0 +1,227 @@
+/* private_keys.css */
+
+/* Global styles */
+body {
+  font-family: 'Times New Roman', Times, serif;
+  margin: 0;
+  padding: 0;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #c3e8bd;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Typography */
+h1,
+h2,
+label {
+  font-family: 'Times New Roman', Times, serif;
+  color: #5b7553;
+  font-weight: bold;
+  animation: fadeIn 1s ease-in-out;
+}
+
+p {
+  font-family: 'Times New Roman', Times, serif;
+  color: #333;
+  font-size: 16px;
+  line-height: 1.5;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Form */
+form {
+  margin-top: 30px;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Form elements */
+input[type="text"],
+textarea,
+select {
+  font-family: 'Times New Roman', Times, serif;
+  display: block;
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #5b7553;
+  background-color: #f2f2f2;
+  margin-bottom: 10px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Buttons */
+button,
+input[type="submit"] {
+  font-family: 'Times New Roman', Times, serif;
+  display: inline-block;
+  padding: 14px 32px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background: #5b7553;
+  color: #f2f2f2;
+  cursor: pointer;
+  transition: background .3s;
+  margin-top: 10px;
+}
+
+/* Pulse effect only for specific buttons */
+button.pulse,
+input[type="submit"].pulse {
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  background: #264e49;
+}
+
+/* Boxes */
+.limit {
+  font-family: 'Times New Roman', Times, serif;
+  width: 70%;
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 30px;
+  font-size: 16px;
+  background: #f2f2f2;
+  color: #333;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
+  overflow-wrap: break-word;
+  animation: elevate 2s infinite;
+}
+
+/* Copy button */
+.copy-button {
+  font-family: 'Times New Roman', Times, serif;
+  padding: 14px 32px;
+  font-size: 16px;
+  border-radius: 5px;
+  background: #5b7553;
+  color: #f2f2f2;
+  border: none;
+  cursor: pointer;
+  transition: background .3s;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.copy-button:hover {
+  background: #475569;
+}
+
+@media (max-width: 600px) {
+  form {
+    margin: 10px;
+  }
+
+  .limit {
+    margin: 10px;
+  }
+}
+
+/* Keyframe animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes elevate {
+  0% {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Add these styles for the falling snow animation */
+.snowflake {
+  position: fixed;
+  top: -10px;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border-radius: 50%;
+  animation: fallingSnow 1s linear infinite;
+ }
+ 
+ @keyframes fallingSnow {
+   0% {
+     transform: translateY(-100vh);
+  }
+   100% {
+     transform: translateY(100vh);
+  }
+ }
+/* Add the pulse effect to the Generate Key button */
+.generate-key-button.pulse {
+  animation: pulse 1.5s infinite ease-in-out;
+}
+.flake {
+  position: fixed;
+  top: -10px;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border-radius: 50%;
+  animation: falling 1s linear infinite;
+ }
+ 
+ .zero, .one {
+  position: fixed;
+  top: -10px;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border-radius: 50%;
+  animation: falling 1s linear infinite;
+ }
+ 
+ .zero::before {
+  content: "0";
+  position: absolute;
+  top: -20px;
+  left: -5px;
+ }
+ 
+ .one::before {
+  content: "1";
+  position: absolute;
+  top: -20px;
+  left: -5px;
+ }
+ 
+ @keyframes falling {
+   0% {
+     transform: translateY(-100vh);
+  }
+   100% {
+     transform: translateY(100vh);
+  }
