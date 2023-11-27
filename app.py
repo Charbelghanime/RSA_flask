@@ -305,12 +305,10 @@ def encrypt():
         encrypted_message = ' '.join(map(str, encrypted_blocks))
         print(f"Encrypted message: {encrypted_message}")
 
-        # Verify the signature
-        is_signature_valid = verify_signature(message, public_key, signature)
+        
 
         return render_template('result.html', keysize=keysize, operation='Encrypt',
-                               message=message, result=encrypted_message, original_length=len(message),
-                               is_signature_valid=is_signature_valid)
+                               message=message, result=encrypted_message, original_length=len(message))
     except Exception as e:
         print(f"Error during encryption: {e}")
         return render_template('error.html', message='Error during encryption')
