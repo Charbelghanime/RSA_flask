@@ -27,7 +27,7 @@ label {
 
 p {
   font-family: 'Times New Roman', Times, serif;
-  color: #ecf0f1; /* Update text color to a light shade */
+  color: #00a8ff;; /* Update text color to a light shade */
   font-size: 16px;
   line-height: 1.5;
   animation: fadeIn 1s ease-in-out;
