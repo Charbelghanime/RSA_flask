@@ -13,11 +13,11 @@
     <p>Key Size: {{ keysize }} bits</p>
     
     <div class="limit">
-        <p>The encrypted message received is: {{ message }}</p>
+        <p>The encrypted message that the Public Key owner received is: {{ message }}</p>
     </div>
     
     <div class="limit">
-        <p>The decryption result is: {{ result }}</p>
+        <p>The decryption result of this message is: {{ result }}</p>
     </div>
 
     {% if operation == 'Encrypt' and private_key_n and private_key_d %}
