@@ -22,9 +22,8 @@
         <input type="hidden" name="public_key_n" value="{{ public_key[0] }}">
         <input type="hidden" name="public_key_e" value="{{ public_key[1] }}">
 
-        <label for="message">Enter the new message to encrypt:</label><br>
-        <textarea name="message" rows="4" cols="50"></textarea><br>
-
+        <label for="message">Enter a new message that you are willing to send to the receiver:</label><br>
+        <textarea id="message" name="message" rows="4" cols="50" required></textarea>
         <input type="submit" value="Encrypt">
     </form>
 
