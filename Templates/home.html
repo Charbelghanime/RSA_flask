@@ -1,3 +1,5 @@
+<!-- home.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +28,6 @@
             RSA is a widely-used public-key cryptosystem that ensures the confidentiality
             and integrity of messages exchanged over the internet.
         </p>
-
         <p class="intro-text">
             When you generate a key, you will be using someone else's key and see the procedure on how the RSA algorithm works.
         </p>
@@ -41,7 +42,9 @@
         <input type="submit" value="Generate Keys" class="generate-key-button pulse"> 
 
     </form>
-    
+    <!-- Add this button to the home page HTML -->
+<a href="https://youtu.be/vf1z7GlG6Qo?si=1EMwtkxFOZKzgudX" target="_blank" class="more-about-rsa-button">More about RSA</a>
+
     {% if 'private_key_d' not in session or 'private_key_n' not in session %}
     <!-- Show the "Return Home" button only if the user is not logged in -->
     <form action="{{ url_for('return_home') }}" method="POST">
@@ -50,21 +53,8 @@
     {% endif %}
     
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          const numSnowflakes = 50;
       
-          for (let i = 0; i < numSnowflakes; i++) {
-            createSnowflake();
-          }
+      </script>
       
-          function createSnowflake() {
-            const snowflake = document.createElement("div");
-            snowflake.className = "snowflake";
-            snowflake.style.left = `${Math.random() * 100}vw`;
-            snowflake.style.animationDuration = `${Math.random() * 2 + 1}s`;
-            document.body.appendChild(snowflake);
-          }
-        });
-    </script>
 </body>
 </html>
