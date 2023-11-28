@@ -9,25 +9,31 @@
 </head>
 
 <body>
+
     <h2>Generated Key</h2>
+
     <p>Key Size: {{ keysize }} bits</p>
-    
+
     <div class="limit">
+
         <p>The Public Key generated that belongs to the person that you are sending a message to:</p>
+
         <p>{{ public_key[0] }}</p>
         <p>{{ public_key[1] }}</p>
+
     </div>
 
-    <form method="POST" action="/encrypt">
+    <form id="encryptForm" method="POST" action="/encrypt">
         <input type="hidden" name="keysize" value="{{ keysize }}">
         <input type="hidden" name="public_key_n" value="{{ public_key[0] }}">
         <input type="hidden" name="public_key_e" value="{{ public_key[1] }}">
-        
-        <label for="message">Enter the message that you to encrypt:</label><br>
-        <textarea name="message" class="multiline" rows="4" cols="50"></textarea><br>
+
+        <label for="message">Enter a new message that you are willing to send to the receiver:</label><br>
+        <textarea id="message" name="message" class="multiline" rows="4" cols="50" required></textarea>
 
         <input type="submit" value="Encrypt">
     </form>
+
 </body>
 
 </html>
