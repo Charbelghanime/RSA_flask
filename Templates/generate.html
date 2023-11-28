@@ -13,7 +13,7 @@
     <p>Key Size: {{ keysize }} bits</p>
     
     <div class="limit">
-        <p>The public Key generated is:</p>
+        <p>The Public Key generated that belongs to the person that you are sending a message to:</p>
         <p>{{ public_key[0] }}</p>
         <p>{{ public_key[1] }}</p>
     </div>
@@ -23,7 +23,7 @@
         <input type="hidden" name="public_key_n" value="{{ public_key[0] }}">
         <input type="hidden" name="public_key_e" value="{{ public_key[1] }}">
         
-        <label for="message">Enter a message to encrypt:</label><br>
+        <label for="message">Enter the message that you to encrypt:</label><br>
         <textarea name="message" class="multiline" rows="4" cols="50"></textarea><br>
 
         <input type="submit" value="Encrypt">
