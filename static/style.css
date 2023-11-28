@@ -5,13 +5,13 @@ body {
   font-family: 'Times New Roman', Times, serif;
   margin: 0;
   padding: 0;
-  color: #000;
+  color: #000; /* Update text color to white */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: #c3e8bd;
+  background: url('https://wallpapercave.com/wp/wp8046982.jpg') center/cover no-repeat; /* Set image as background */
   animation: fadeIn 1s ease-in-out;
 }
 
@@ -20,23 +20,16 @@ h1,
 h2,
 label {
   font-family: 'Times New Roman', Times, serif;
-  color: #5b7553;
+  color: #00a8ff; /* Update text color to a vibrant blue */
   font-weight: bold;
   animation: fadeIn 1s ease-in-out;
 }
 
 p {
   font-family: 'Times New Roman', Times, serif;
-  color: #333;
+  color: #ecf0f1; /* Update text color to a light shade */
   font-size: 16px;
   line-height: 1.5;
-  animation: fadeIn 1s ease-in-out;
-}
-
-/* Form */
-form {
-  margin-top: 30px;
-  text-align: center;
   animation: fadeIn 1s ease-in-out;
 }
 
@@ -50,23 +43,25 @@ select {
   padding: 12px;
   font-size: 14px;
   border-radius: 5px;
-  border: 1px solid #5b7553;
-  background-color: #f2f2f2;
+  border: 1px solid #00a8ff; /* Update border color to vibrant blue */
+  background-color: #b4d5f6; /* Update background color to a dark shade */
   margin-bottom: 10px;
+  color: #000; /* Update text color to black */
   animation: fadeIn 1s ease-in-out;
 }
 
 /* Buttons */
 button,
-input[type="submit"] {
+input[type="submit"],
+.more-about-rsa-button { /* New button styles */
   font-family: 'Times New Roman', Times, serif;
   display: inline-block;
   padding: 14px 32px;
   font-size: 16px;
   border: none;
   border-radius: 5px;
-  background: #5b7553;
-  color: #f2f2f2;
+  background: #00a8ff; /* Update button background color to vibrant blue */
+  color: #000; /* Update text color to black */
   cursor: pointer;
   transition: background .3s;
   margin-top: 10px;
@@ -74,13 +69,15 @@ input[type="submit"] {
 
 /* Pulse effect only for specific buttons */
 button.pulse,
-input[type="submit"].pulse {
+input[type="submit"].pulse,
+.more-about-rsa-button.pulse { /* New button styles */
   animation: pulse 1.5s infinite ease-in-out;
 }
 
 button:hover,
-input[type="submit"]:hover {
-  background: #264e49;
+input[type="submit"]:hover,
+.more-about-rsa-button:hover { /* New button styles */
+  background: #0077b6; /* Update hover background color to a slightly darker shade of blue */
 }
 
 /* Boxes */
@@ -91,8 +88,8 @@ input[type="submit"]:hover {
   margin: 30px auto;
   padding: 30px;
   font-size: 16px;
-  background: #f2f2f2;
-  color: #333;
+  background: #b4d5f6; /* Update box background color to a dark shade */
+  color: #000; /* Update text color to black */
   border-radius: 5px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
   overflow-wrap: break-word;
@@ -100,31 +97,23 @@ input[type="submit"]:hover {
 }
 
 /* Copy button */
-.copy-button {
+.copy-button,
+.more-about-rsa-button { /* New button styles */
   font-family: 'Times New Roman', Times, serif;
   padding: 14px 32px;
   font-size: 16px;
   border-radius: 5px;
-  background: #5b7553;
-  color: #f2f2f2;
+  background: #00a8ff; /* Update button background color to vibrant blue */
+  color: #000; /* Update text color to black */
   border: none;
   cursor: pointer;
   transition: background .3s;
   animation: fadeIn 1s ease-in-out;
 }
 
-.copy-button:hover {
-  background: #475569;
-}
-
-@media (max-width: 600px) {
-  form {
-    margin: 10px;
-  }
-
-  .limit {
-    margin: 10px;
-  }
+.copy-button:hover,
+.more-about-rsa-button:hover { /* New button styles */
+  background: #0077b6; /* Update hover background color to a slightly darker shade of blue */
 }
 
 /* Keyframe animations */
@@ -161,67 +150,3 @@ input[type="submit"]:hover {
   }
 }
 
-/* Add these styles for the falling snow animation */
-.snowflake {
-  position: fixed;
-  top: -10px;
-  width: 10px;
-  height: 10px;
-  background: #fff;
-  border-radius: 50%;
-  animation: fallingSnow 1s linear infinite;
- }
- 
- @keyframes fallingSnow {
-   0% {
-     transform: translateY(-100vh);
-  }
-   100% {
-     transform: translateY(100vh);
-  }
- }
-/* Add the pulse effect to the Generate Key button */
-.generate-key-button.pulse {
-  animation: pulse 1.5s infinite ease-in-out;
-}
-.flake {
-  position: fixed;
-  top: -10px;
-  width: 10px;
-  height: 10px;
-  background: #fff;
-  border-radius: 50%;
-  animation: falling 1s linear infinite;
- }
- 
- .zero, .one {
-  position: fixed;
-  top: -10px;
-  width: 10px;
-  height: 10px;
-  background: #fff;
-  border-radius: 50%;
-  animation: falling 1s linear infinite;
- }
- 
- .zero::before {
-  content: "0";
-  position: absolute;
-  top: -20px;
-  left: -5px;
- }
- 
- .one::before {
-  content: "1";
-  position: absolute;
-  top: -20px;
-  left: -5px;
- }
- 
- @keyframes falling {
-   0% {
-     transform: translateY(-100vh);
-  }
-   100% {
-     transform: translateY(100vh);
-  }
